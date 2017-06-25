@@ -3,7 +3,7 @@
 http = require("http");
 
 let key = ""; //API key, found here: https://osu.ppy.sh/p/api
-let users = ["titanknox", "FoxyGrandpa"]; //A list of the users you want to view, in quotation marks and separated by commas
+let users = ["Cookiezi", "Vaxei"]; //A list of the users you want to view, in quotation marks and separated by commas
 let mode = 0; //(0 = osu!, 1 = Taiko, 2 = CtB, 3 = osu!mania)
 
 function format(name="", value=0, index=1) {
