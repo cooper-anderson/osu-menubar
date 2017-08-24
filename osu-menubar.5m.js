@@ -2,9 +2,11 @@
 
 http = require("http");
 
-let key = ""; //API key, found here: https://osu.ppy.sh/p/api
-let users = ["Cookiezi", "Vaxei"]; //A list of the users you want to view, in quotation marks and separated by commas
-let mode = 0; //(0 = osu!, 1 = Taiko, 2 = CtB, 3 = osu!mania)
+
+// Format for users: {<name>: <mode>, <name>: <mode>}   separated by commas
+// name: Name of the user you want to view, in quotation marks
+// mode: 0 = osu!, 1 = Taiko, 2 = CtB, 3 = osu!mania
+let users = {"Cookiezi": 0, "Vaxei": 0, "jhlee0133": 3};
 
 function format(name="", value=0, index=1) {
 	console.log("--".repeat(index) + name + ": " + value);
@@ -36,7 +38,8 @@ function output(data) {
 console.log("osu!");
 console.log("---");
 
-for (let user of users) {
+for (let user in users) {
+	let mode = users[user];
 	let request = http.request({host: "osu.ppy.sh", path: `/api/get_user?k=${key}&u=${user}&m=${mode}`}, function (res) {
 		var data = '';
 		res.on('data', function (chunk) {
