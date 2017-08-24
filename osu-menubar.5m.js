@@ -2,6 +2,7 @@
 
 http = require("http");
 
+let key = ""; //API key, found here: https://osu.ppy.sh/p/api
 
 // Format for users: {<name>: <mode>, <name>: <mode>}   separated by commas
 // name: Name of the user you want to view, in quotation marks
