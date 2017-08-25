@@ -13,7 +13,7 @@ function format(name="", value=0, index=1) {
 	console.log("--".repeat(index) + name + ": " + value);
 }
 
-function output(data) {
+function output(data, mode) {
 	console.log(data.username);
 	format("rank", data.pp_rank);
 	format("level", data.level);
@@ -34,6 +34,7 @@ function output(data) {
 	console.log("-----")
 	format("country rank", data.pp_country_rank + ' ' + data.country);
 	format("user id", data.user_id);
+	format("mode", mode);
 }
 
 console.log("osu!");
@@ -48,7 +49,7 @@ for (let user in users) {
 		});
 		res.on('end', function () {
 			// console.log(data);
-			output(JSON.parse(data)[0]);
+			output(JSON.parse(data)[0], ["osu!", "Taiko", "CatchTheBeat", "osu!mania"][mode]);
 		});
 	});
 	request.on('error', function (e) {
